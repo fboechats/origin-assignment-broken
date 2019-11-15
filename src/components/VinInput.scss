@@ -1,17 +1,36 @@
 $color: #ff9393;
 .VinInput {
     display: flex;
+    flex-direction: column;
     input {
+        width: 350px;
+        height: 50px;
+        padding: 10px;
+        margin-bottom: 10px;
+        line-height: 40px;
+        font-size: .8em;
+        outline: none;
+        border: 1px solid transparent;
+        background-color: #ddd;
         border-radius: 5px;
         caret-color: #1056ad;
+        transition: 200ms all linear;
     }
     &__Error {
         color: $color;
+        font-size: .6em;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &.VinInput--invalid {
+        input {
+            border-color: $color;
+        }
     }
 }
 
 ::-webkit-input-placeholder {
-    color: #bbb
+    color: #bbb;
 }
 
 *:focus {

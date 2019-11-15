@@ -8,9 +8,9 @@ type Props = Pick<RootState, "vin" | "vinCheckResult" | "vinValidationError">
 type Actions = Pick<typeof actions, "setVin" | "checkVin">
 
 const VinCheck: React.SFC<Props & Actions> = props => (
-    <div>
+    <div className="container">
         <div className="Logo" />
-        <h3>Decode Your Vehicle Identification Number</h3>
+        <p>Decode Your Vehicle Identification Number</p>
         <VinInput value={props.vin} onChange={props.setVin} error={props.vinValidationError} />
         <button disabled={props.vinCheckResult === "Loading"} onClick={props.checkVin}>
             Decode
@@ -25,7 +25,4 @@ const mapDispatch: MapDispatch<Actions> = dispatch => ({
     checkVin: () => dispatch(actions.checkVin())
 })
 
-export const VinCheckView = connect(
-    mapState,
-    mapDispatch
-)(VinCheck)
+export const VinCheckView = connect(mapState, mapDispatch)(VinCheck)

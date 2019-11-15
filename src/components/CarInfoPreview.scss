@@ -1,5 +1,13 @@
 .CarInfoPreview {
-    &__Line {}
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: 100%;
+    &__Line {
+        border-top: 1px solid #ccc;
+        padding: 10px 0;
+        font-size: .6em;
+    }
     &__Line:first-child {
         border-top: none;
     }

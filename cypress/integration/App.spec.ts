@@ -47,9 +47,11 @@ describe("App", () => {
         cy.visit(APP_URL)
         cy.get(DOM.vinInput).type("WBAFR1C52BC745487")
         cy.get(DOM.errorText).should("be.empty")
-        cy.get(DOM.decodeButton)
+        cy
+            .get(DOM.decodeButton)
             .click()
             .should("be.disabled")
+        cy.wait(20000)
         cy.screenshot("040-with-spinner-while-decoding")
         cy.get(DOM.carInfoPreview).contains("Make BMW")
         cy.get(DOM.carInfoPreview).contains("Year 2011")
